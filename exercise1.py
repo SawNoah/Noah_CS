@@ -1,61 +1,42 @@
-#Reference Link : https://www.geeksforgeeks.org/opencv-python-program-face-detection/?ref=lbp
-# OpenCV program to detect face in real time
-# import libraries of python OpenCV 
-# where its functionality resides
-import cv2 
-  
-# load the required trained XML classifiers
-# https://github.com/Itseez/opencv/blob/master/
-# data/haarcascades/haarcascade_frontalface_default.xml
-# Trained XML classifiers describes some features of some
-# object we want to detect a cascade function is trained
-# from a lot of positive(faces) and negative(non-faces)
-# images.
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades +'haarcascade_frontalface_default.xml')
+import tkinter
+from tkinter import Button
+import tkinter.font as font
+from tkinter import messagebox as tkmsg
+from tkinter import Label
+from tkinter import Entry
 
-  
-# https://github.com/Itseez/opencv/blob/master
-# /data/haarcascades/haarcascade_eye.xml
-# Trained XML file for detecting eyes
-eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades +'haarcascade_eye.xml') 
+window = tkinter.Tk()
 
-# capture frames from a camera
-cap = cv2.VideoCapture(1)
-  
-# loop runs if capturing has been initialized.
-while 1: 
-  
-    # reads frames from a camera
-    ret, img = cap.read() 
-  
-    # convert to gray scale of each frames
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-  
-    # Detects faces of different sizes in the input image
-    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-  
-    for (x,y,w,h) in faces:
-        # To draw a rectangle in a face 
-        cv2.rectangle(img,(x,y),(x+w,y+h),(255,255,0),2) 
-        roi_gray = gray[y:y+h, x:x+w]
-        roi_color = img[y:y+h, x:x+w]
-  
-        # Detects eyes of different sizes in the input image
-        eyes = eye_cascade.detectMultiScale(roi_gray) 
-  
-        #To draw a rectangle in eyes
-        for (ex,ey,ew,eh) in eyes:
-            cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,127,255),2)
-  
-    # Display an image in a window
-    cv2.imshow('img',img)
-    # Wait for Esc key to stop
-    k = cv2.waitKey(30) & 0xff
-    if k == 27:
-        break
-# Close the window
-cap.release()
-  
-# De-allocate any associated memory usage
-cv2.destroyAllWindows() 
+# to rename the title of the window
+window.title("GUI")
+window.geometry('500x200')
+myfont=font.Font(family='Times New Roman',size=12)
 
+#function when the button click
+def Sum():
+    num1=int(ent1.get())
+    num2=int(ent2.get())
+    result=num1+num2
+    info= ent1.get()+"+"+ent2.get()+"="+str(result)+"\n Exit Application?"
+    Msg=tkmsg.askyesno("Result",info)
+    if Msg==True:
+        window.destroy()
+    else:
+        ent1.delete(0,'end')
+        ent2.delete(0,'end')
+        ent1.focus()
+        
+lbl1=Label(window,text="Number1:");
+lbl1.place(x=0,y=10)
+ent1=Entry(window,width=30)
+ent1.place(x=100,y=10)
+
+lbl2=Label(window,text="Number2 :");
+lbl2.place(x=0,y=30)
+ent2=Entry(window,width=30)
+ent2.place(x=100,y=30)
+
+btn=Button(window, text="Sum",font=myfont, command=Sum)
+btn.place(x=300, y=10)
+
+window.mainloop()
