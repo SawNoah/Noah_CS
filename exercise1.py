@@ -14,3 +14,15 @@ if st.checkbox("Show/Hide"):
 
 status = st.radio("select gender:", ('Male','Female'))
 st.success(status)
+
+#Import libraries
+import streamlit as st
+import numpy as np
+import cv2
+from  PIL import Image, ImageEnhance
+
+#Add file uploader to allow users to upload photos
+fileTypes = ["jpeg", "png", "jpg"]
+file = st.file_uploader("Upload  image file",type=fileTypes)
+if file is not None:
+    st.image(file)
