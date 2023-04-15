@@ -3,8 +3,8 @@ x = st.slider("Select a value")
 st.write(x, "squared is", x * x)
 
 
-img = cv2.imread('image/a1.jpg')
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+img = st.read('image/a1.jpg')
+gray = st.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-cv2.imshow('Original image', img)
-cv2.imshow('Gray image', gray)
+st.imshow('Original image', img)
+st.imshow('Gray image', gray)
