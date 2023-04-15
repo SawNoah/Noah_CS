@@ -1,4 +1,3 @@
-pip install OpenCV
 import streamlit as st
 x = st.slider("Select a value")
 answer = x, "squared is", x * x
