@@ -2,7 +2,7 @@ import streamlit as st
 x = st.slider("Select a value")
 st.write(x, "squared is", x * x)
 
-impport streamlit as st
+import streamlit as st
 from PIL import Image
 img = Image.open("image/a1.jpg")
 st.image(img,width=200)
