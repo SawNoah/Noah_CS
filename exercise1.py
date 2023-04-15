@@ -18,7 +18,6 @@ st.success(status)
 #Import libraries
 import streamlit as st
 import numpy as np
-import cv2
 from  PIL import Image, ImageEnhance
 
 #Add file uploader to allow users to upload photos
