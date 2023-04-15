@@ -1,6 +1,6 @@
 import streamlit as st
 x = st.slider("Select a value")
-st.warning(st.write(x, "squared is", x * x))
+st.warning(x, "squared is", x * x)
 
 import streamlit as st
 from PIL import Image
