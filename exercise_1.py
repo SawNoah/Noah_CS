@@ -71,7 +71,7 @@ status = st.radio("Select Gender:", ('Male',"Female"))
 st.success(status)
 
 st.header("Exercise 3")
-esub - t.selectbox("Elective:",
+esub = t.selectbox("Elective:",
                    ["Music","Japanese","Korea"])
 st.write("Your elective subject is:",esub)
 
