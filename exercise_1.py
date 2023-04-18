@@ -42,7 +42,7 @@ import streamlit as st
 from PIL import Image
 
 #Display Images:
-img = Image.open("image/laptop.png")
+img = Image.open("image/laptop.jpg")
 
 #display image using streamlit
 #width is used to set the width of an image
