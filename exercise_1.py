@@ -85,7 +85,7 @@ if(st.button("Click me. Click me")):
   
 name = st.text_input("Enter your name:", "Type Here ...")
 
-if(st.button("Submit"):
+if (st.button("Submit")):
    result = name.title()
    st.write('Hello',result)
    
