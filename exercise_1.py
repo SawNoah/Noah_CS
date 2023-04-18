@@ -5,7 +5,7 @@ import streamlit as st
 st.title("Hello Streamlit")
 
 #Header
-st.header("This is a header")
+st.header("Exercise 1")
 
 #subheader
 st.subheader("This is subheader")
@@ -37,6 +37,7 @@ st.write("Text with write")
 #Writing python inbuilt function range()
 st.write(range(10))
 
+st.header("Exercise 2")
 #Stream Basic Function
 import streamlit as st
 from PIL import Image
@@ -68,3 +69,26 @@ status = st.radio("Select Gender:", ('Male',"Female"))
 #Male if male is selected else print female
 #show the result using the success function
 st.success(status)
+
+st.header("Exercise 3")
+esub - t.selectbox("Elective:",
+                   ["Music","Japanese","Korea"])
+st.write("Your elective subject is:",esub)
+
+hobbies = st.multiselect("Hobbies:",
+                         ["Painting","Dancing","Sports","Gaming"])
+
+st.write("You select:", len(hobbies),'hobbies')
+
+if(st.button("Click me. Click me")):
+  st.text("Hello! Welcome to Stremlit")
+  
+name = st.text_input("Enter your name:", "Type Here ...")
+
+if(st.button("Submit"):
+   result = name.title()
+   st.write('Hello',result)
+   
+level = st.slider("Select the level", 1,10)
+st.text("Selected: {}", format(level)) 
+   
